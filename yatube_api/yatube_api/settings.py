@@ -18,9 +18,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'djoser',
     'api',
     'posts',
-    'djoser',
 ]
 
 MIDDLEWARE = [
@@ -94,10 +94,11 @@ STATICFILES_DIRS = ((BASE_DIR / 'static/'),)
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        'yatube_api.permissions.IsAuthorOrReadOnly',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ]
+    ],
 }
 
 SIMPLE_JWT = {
